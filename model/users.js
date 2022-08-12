@@ -1,6 +1,10 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+const uri = "mongodb://localhost... OR mongodb+srv://user_Or_password....";
+
+const connection = mongoose.createConnection(uri);
+
 const userSchema = new Schema({
   username: {
     type: String,
@@ -17,4 +21,4 @@ const userSchema = new Schema({
   },
 });
 
-module.exports = mongoose.model("User", userSchema);
+module.exports = connection.model("User", userSchema);
